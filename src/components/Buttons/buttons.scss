@@ -1,0 +1,29 @@
+.btn_sorting {
+  padding: 3vh 15vh 3vh 15vh;
+  margin: 1vh 1vh 0 0;
+  border-radius: 3vh;
+  font-size: 150%;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
+}
+
+.btn_page {
+  padding: 3vh;
+  border-radius: 1vh;
+  margin: 1vh 1vh 10vh 0;
+  font-size: 150%;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
+}

@@ -1,6 +1,6 @@
 import Header from "./components/Header/Header";
-import SectionButtons from "./components/SectionButtons/SectionButtons";
 import SectionPhotos from "./components/SectionPhotos/SectionPhotos";
+import "./index.scss";
 
 function App() {
   return (
@@ -8,7 +8,6 @@ function App() {
       <div className="container">
         <Header />
         <main>
-          <SectionButtons />
           <SectionPhotos />
         </main>
       </div>
