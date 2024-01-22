@@ -1,26 +1,59 @@
+$backColor: #8f8f8f81;
+$backShadowColor: #3f3e3e81;
+$borderEl: 1px solid rgb(124, 122, 122);
+
 img {
-  display: block;
-  width: 10rem;
-  height: 10rem;
-  margin: 10rem auto;
+  width: 100%;
+  max-height: 100%;
+  margin: auto;
+  border: $borderEl;
+  border-radius: 1rem;
+  box-shadow: 10px 5px 1px #818080;
+}
+
+.background_btns,
+.background_page {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  justify-content: space-evenly;
+  background: $backColor;
+}
+
+.background_btns {
+  box-shadow: 0px 25px 20px $backShadowColor;
+  border-bottom: $borderEl;
+}
+
+.background_page {
+  box-shadow: 0px -25px 20px $backShadowColor;
+  border-top: $borderEl;
+}
+
+.photos {
+  display: flex;
+  flex-wrap: wrap;
+  background: #d8d8d8;
+  position: relative;
+  z-index: -1;
+
+  .photos_elts {
+    display: grid;
+    grid-template-columns: 25% 25% 25%;
+    margin: 10rem auto;
+
+    justify-content: space-between;
+
+    .opacity {
+      opacity: 50%;
+    }
+  }
 }
 
 .btns {
-  background: #f2f2f281;
-  box-shadow: 0px 16px 20px #929292;
-  border-bottom: 1px solid black;
-
   .btns_child {
     text-align: center;
     padding: 0;
     margin: 5% 0 2% 0;
-  }
-}
-
-.photos {
-  .btns-page_child {
-    box-shadow: 0 -16px 20px #929292;
-    border-top: 1px solid black;
-    text-align: center;
   }
 }

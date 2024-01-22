@@ -11,26 +11,34 @@ const category = [
 ];
 
 export default function SectionPhotos() {
-  const arr = [1, 2, 3, 4, 5];
+  const arr = ["<", ">"];
   return (
     <section>
-      <section className="btns">
-        <div className="btns_child">
-          {category.map((el, index) => (
-            <ButtonSorting key={index}>{el.name}</ButtonSorting>
-          ))}
+      <div className="background_btns">
+        <div className="btns">
+          <div className="btns_child">
+            {category.map((el, index) => (
+              <ButtonSorting key={index}>{el.name}</ButtonSorting>
+            ))}
+          </div>
         </div>
-      </section>
-      <section className="photos">
+      </div>
+
+      <div className="photos">
         <div className="photos_elts">
-          <img src="/vite.svg" alt="photo"></img>
+          <img src="/images_1.jpeg" alt="photo-left" className="opacity"></img>
+          <img src="/images_2.jpeg" alt="photo-center" className=""></img>
+          <img src="/images_3.jpeg" alt="photo-right" className="opacity"></img>
         </div>
+      </div>
+
+      <div className="background_page">
         <div className="btns-page_child">
           {arr.map((el, index) => (
             <ButtonPage key={index}>{el}</ButtonPage>
           ))}
         </div>
-      </section>
+      </div>
     </section>
   );
 }

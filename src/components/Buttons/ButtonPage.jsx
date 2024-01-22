@@ -5,5 +5,5 @@ ButtonPage.propTypes = {
 };
 
 export default function ButtonPage({ children }) {
-  return <button className="btn_page">{children}</button>;
+  return <button className="btn_page ">{children}</button>;
 }
