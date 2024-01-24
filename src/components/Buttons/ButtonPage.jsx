@@ -1,9 +1,29 @@
 import PropTypes from "prop-types";
 
 ButtonPage.propTypes = {
-  children: PropTypes.node.isRequired,
+  photoIndex: PropTypes.number,
+  setPhotoIndex: PropTypes.func,
 };
 
-export default function ButtonPage({ children }) {
-  return <button className="btn_page ">{children}</button>;
+export default function ButtonPage({ photoIndex, setPhotoIndex }) {
+  return (
+    <>
+      <button
+        className="btn_page "
+        onClick={() => {
+          setPhotoIndex(photoIndex - 1);
+        }}
+      >
+        {"<"}
+      </button>
+      <button
+        className="btn_page "
+        onClick={() => {
+          setPhotoIndex(photoIndex + 1);
+        }}
+      >
+        {">"}
+      </button>
+    </>
+  );
 }

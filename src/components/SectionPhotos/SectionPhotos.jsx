@@ -1,5 +1,8 @@
+import { useState } from "react";
 import ButtonPage from "../Buttons/ButtonPage";
 import ButtonSorting from "../Buttons/ButtonSorting";
+import Img from "./Img";
+
 import "./sectionPhotos.scss";
 
 const category = [
@@ -10,8 +13,19 @@ const category = [
   { name: "Животные" },
 ];
 
+const photos = [
+  { link: "/images_1.jpeg" },
+  { link: "/images_2.jpeg" },
+  { link: "/images_3.jpeg" },
+  { link: "/images_4.jpg" },
+  { link: "/images_5.jpg" },
+  { link: "/Images_6.jpg" },
+];
+
 export default function SectionPhotos() {
-  const arr = ["<", ">"];
+  // eslint-disable-next-line no-unused-vars
+  const [photoIndex, setPhotoIndex] = useState(0);
+
   return (
     <section>
       <div className="background_btns">
@@ -26,17 +40,32 @@ export default function SectionPhotos() {
 
       <div className="photos">
         <div className="photos_elts">
-          <img src="/images_1.jpeg" alt="photo-left" className="opacity"></img>
-          <img src="/images_2.jpeg" alt="photo-center" className=""></img>
-          <img src="/images_3.jpeg" alt="photo-right" className="opacity"></img>
+          <Img
+            opacity={true}
+            photosArr={photos}
+            index={photoIndex - 1 === -1 ? photos.length - 1 : photoIndex - 1}
+          />
+          <Img
+            opacity={false}
+            photosArr={photos}
+            index={photoIndex}
+            setPhotoIndex={setPhotoIndex}
+          />
+          <Img
+            opacity={true}
+            photosArr={photos}
+            index={photoIndex + 1 === photos.length ? 0 : photoIndex + 1}
+          />
         </div>
       </div>
 
       <div className="background_page">
         <div className="btns-page_child">
-          {arr.map((el, index) => (
-            <ButtonPage key={index}>{el}</ButtonPage>
-          ))}
+          <ButtonPage
+            photosArr={photos}
+            photoIndex={photoIndex}
+            setPhotoIndex={setPhotoIndex}
+          />
         </div>
       </div>
     </section>
