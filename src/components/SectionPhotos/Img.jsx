@@ -17,11 +17,11 @@ export default function Img({
   isLoading,
 }) {
   useEffect(() => {
-    if (setPhotoIndex !== undefined) {
+    if (setPhotoIndex !== undefined && !isLoading) {
       if (index === photosArr.length) setPhotoIndex(0);
       else if (index === -1) setPhotoIndex(photosArr.length - 1);
     }
-  }, [setPhotoIndex, index, photosArr.length]);
+  }, [setPhotoIndex, index, photosArr.length, isLoading]);
 
   return isLoading ? (
     <p>Идет загрузка...</p>

@@ -12,7 +12,6 @@ const linkCategory = "http://localhost:8000/categorys";
 const linkPhotos = "http://localhost:8000/photos";
 
 export default function SectionPhotos() {
-  // eslint-disable-next-line no-unused-vars
   const [photoIndex, setPhotoIndex] = useState(0);
   const [categoryId, setCategoryId] = useState(0);
   const [category, setCategory] = useState([]);
@@ -20,18 +19,7 @@ export default function SectionPhotos() {
   const [photosIsLoad, setPhotosIsLoad] = useState(true);
 
   useEffect(() => {
-    setPhotosIsLoad(true);
-
-    axios
-      .get(linkCategory)
-      .then((res) => setCategory(res.data))
-      .catch((err) => console.log("Category", err));
-
-    axios
-      .get(`${linkPhotos}?category=${categoryId}`)
-      .then((res) => setPhotos(res.data))
-      .catch((err) => console.log("Photos", err))
-      .finally(() => setPhotosIsLoad(false));
+    start(setCategory, categoryId, setPhotos, setPhotosIsLoad);
   }, [categoryId, photosIsLoad]);
 
   return (
@@ -40,7 +28,7 @@ export default function SectionPhotos() {
         <div className="btns">
           <div className="btns_child">
             {category.map((el, index) => (
-              <ButtonSorting key={index} id={el.id} setId={setCategoryId}>
+              <ButtonSorting key={index} id={+el.id} setId={setCategoryId}>
                 {el.name}
               </ButtonSorting>
             ))}
@@ -64,6 +52,21 @@ export default function SectionPhotos() {
     </section>
   );
 }
+
+const start = async (setCategory, categoryId, setPhotos, setPhotosIsLoad) => {
+  await setPhotosIsLoad(true);
+
+  await axios
+    .get(linkCategory)
+    .then((res) => setCategory(res.data))
+    .catch((err) => console.log("Category", err));
+
+  await axios
+    .get(`${linkPhotos}?category=${categoryId === 0 ? "" : categoryId}`)
+    .then((res) => setPhotos(res.data))
+    .catch((err) => console.log("Photos", err))
+    .finally(() => setPhotosIsLoad(false));
+};
 
 const photoElements = (photos, photoIndex, setPhotoIndex, isLoading) => {
   return (

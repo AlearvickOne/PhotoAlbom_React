@@ -10,17 +10,13 @@ export default function ButtonPage({ photoIndex, setPhotoIndex }) {
     <>
       <button
         className="btn_page "
-        onClick={() => {
-          setPhotoIndex(photoIndex - 1);
-        }}
+        onClick={() => setPhotoIndex(photoIndex - 1)}
       >
         {"<"}
       </button>
       <button
         className="btn_page "
-        onClick={() => {
-          setPhotoIndex(photoIndex + 1);
-        }}
+        onClick={() => setPhotoIndex(photoIndex + 1)}
       >
         {">"}
       </button>

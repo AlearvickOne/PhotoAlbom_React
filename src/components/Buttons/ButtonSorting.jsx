@@ -9,7 +9,7 @@ ButtonSorting.propTypes = {
 
 export default function ButtonSorting({ children, id, setId }) {
   return (
-    <button className="btn_sorting" onClick={() => setId(id === 0 ? "" : id)}>
+    <button className="btn_sorting" onClick={() => setId(id)}>
       {children}
     </button>
   );
