@@ -1,0 +1,61 @@
+{
+  "categorys": [
+    {
+      "id": 0,
+      "name": "Все"
+    },
+    {
+      "id": 1,
+      "name": "Горы"
+    },
+    {
+      "id": 2,
+      "name": "Природа"
+    },
+    {
+      "id": 3,
+      "name": "Города"
+    },
+    {
+      "id": 4,
+      "name": "Люди"
+    },
+    {
+      "id": 5,
+      "name": "Животные"
+    }
+  ],
+
+  "photos": [
+    {
+      "id": 0,
+      "category": 4,
+      "link": "https://s1.1zoom.me/big3/121/Asian_Watch_Brown_haired_Hands_Glance_Bokeh_595512_7360x4912.jpg"
+    },
+    {
+      "id": 1,
+      "category": 4,
+      "link": "https://lifeonphoto.com/img/images/2021/09/26/AZIATSKIE-MILYE-DEVUSKI-17.jpg"
+    },
+    {
+      "id": 2,
+      "category": 4,
+      "link": "https://lifeonphoto.com/img/images/2021/11/29/Cute-Asian-girls-5.jpg"
+    },
+    {
+      "id": 3,
+      "category": 5,
+      "link": "https://oir.mobi/uploads/posts/2021-05/1621877022_26-oir_mobi-p-samaya-krasivaya-morskaya-svinka-v-mire-zh-28.jpg"
+    },
+    {
+      "id": 4,
+      "category": 5,
+      "link": "https://laplaya-rus.ru/wp-content/uploads/2/8/5/285ac848bbbb168f9a318dc114eb4fe6.jpeg"
+    },
+    {
+      "id": 5,
+      "category": 5,
+      "link": "https://w.forfun.com/fetch/92/9258dcc60ae2278b6d73e8d3498d5fd8.jpeg"
+    }
+  ]
+}

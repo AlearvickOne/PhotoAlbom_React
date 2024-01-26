@@ -6,6 +6,7 @@ img {
   max-width: 100%;
   max-height: 100%;
   margin: auto;
+
   border: $borderEl;
   border-radius: 1rem;
   box-shadow: 10px 5px 1px #818080;
@@ -32,17 +33,17 @@ img {
 
 .photos {
   display: flex;
-  flex-wrap: wrap;
+
   background: #d8d8d8;
   position: relative;
   z-index: -1;
-  max-height: 542px;
+  height: 542px;
 
   .photos_elts {
     display: grid;
 
     grid-template-columns: 25% 25% 25%;
-    margin: 10rem auto;
+    margin: auto;
 
     justify-content: space-between;
 
