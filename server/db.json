@@ -1,106 +1,115 @@
 {
   "categorys": [
     {
-      "id": 0,
+      "id": "0",
       "name": "Все"
     },
     {
-      "id": 1,
+      "id": "1",
       "name": "Горы"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Природа"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Города"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Люди"
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Животные"
     }
   ],
-
   "photos": [
     {
-      "id": 0,
+      "id": "0",
       "category": 4,
       "link": "https://s1.1zoom.me/big3/121/Asian_Watch_Brown_haired_Hands_Glance_Bokeh_595512_7360x4912.jpg"
     },
     {
-      "id": 1,
+      "id": "1",
       "category": 4,
       "link": "https://lifeonphoto.com/img/images/2021/09/26/AZIATSKIE-MILYE-DEVUSKI-17.jpg"
     },
     {
-      "id": 2,
+      "id": "2",
       "category": 4,
       "link": "https://lifeonphoto.com/img/images/2021/11/29/Cute-Asian-girls-5.jpg"
     },
     {
-      "id": 3,
+      "id": "3",
       "category": 5,
       "link": "https://oir.mobi/uploads/posts/2021-05/1621877022_26-oir_mobi-p-samaya-krasivaya-morskaya-svinka-v-mire-zh-28.jpg"
     },
     {
-      "id": 4,
+      "id": "4",
       "category": 5,
       "link": "https://laplaya-rus.ru/wp-content/uploads/2/8/5/285ac848bbbb168f9a318dc114eb4fe6.jpeg"
     },
     {
-      "id": 5,
+      "id": "5",
       "category": 5,
       "link": "https://w.forfun.com/fetch/92/9258dcc60ae2278b6d73e8d3498d5fd8.jpeg"
     },
     {
-      "id": 6,
+      "id": "6",
       "category": 3,
       "link": "https://mykaleidoscope.ru/x/uploads/posts/2022-09/1663463603_54-mykaleidoscope-ru-p-nyu-york-stolitsa-mira-dostoprimechatelnos-58.jpg"
     },
     {
-      "id": 7,
+      "id": "7",
       "category": 3,
       "link": "https://celoft.ru/wp-content/uploads/e/b/d/ebd5d18aec0924e6aab9348e77712235.jpeg"
     },
     {
-      "id": 8,
+      "id": "8",
       "category": 3,
       "link": "https://sportishka.com/uploads/posts/2022-04/1650711371_29-sportishka-com-p-nyu-york-siti-krasivo-foto-37.jpg"
     },
     {
-      "id": 9,
+      "id": "9",
       "category": 1,
       "link": "https://severnykavkaz.ru/wp-content/uploads/2018/10/djip-tur-na-plato-bermamyt.jpg"
     },
     {
-      "id": 10,
+      "id": "10",
       "category": 1,
       "link": "https://xn----8sbah0abhgdc2dma0a.xn--p1ai/images/16_plato-bermamyt-ka.jpg"
     },
     {
-      "id": 11,
+      "id": "11",
       "category": 1,
       "link": "http://xplanet.info/mt-content/uploads/2019/06/20190622_095511.jpg"
     },
     {
-      "id": 12,
+      "id": "12",
       "category": 2,
       "link": "https://sportishka.com/uploads/posts/2022-11/1667565924_48-sportishka-com-p-ozero-vlasevo-khakasiya-pinterest-48.jpg"
     },
     {
-      "id": 13,
+      "id": "13",
       "category": 2,
       "link": "https://tourism.interfax.ru/images/cms-image-000020883.jpg"
     },
     {
-      "id": 14,
+      "id": "14",
       "category": 2,
       "link": "https://vsegda-pomnim.com/uploads/posts/2023-07/1689285131_vsegda-pomnim-com-p-peizazhi-khakasii-foto-24.jpg"
+    },
+    {
+      "id": "15",
+      "category": "2",
+      "link": "https://pic.rutubelist.ru/video/c7/ae/c7ae7494461c38f63c9dd5d251b8412f.jpg"
+    },
+    {
+      "id": "16",
+      "category": "2",
+      "link": "https://cdn.culture.ru/images/f6b0a04c-dcde-5b92-be37-e33510b60d1f"
     }
   ]
 }

@@ -1,34 +1,48 @@
-// import axios from "axios";
-
-import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
+import { useState } from "react";
 import ButtonPage from "../Buttons/ButtonPage";
 import ButtonSorting from "../Buttons/ButtonSorting";
 import Img from "./Img";
 
 import "./sectionPhotos.scss";
-import axios from "axios";
 
-const linkCategory = "http://localhost:8000/categorys";
-const linkPhotos = "http://localhost:8000/photos";
+const photoElements = (photos, photoIndex, setPhotoIndex) => {
+  return (
+    <div className="photos_elts">
+      <Img
+        opacity={true}
+        photosArr={photos}
+        index={photoIndex - 1 === -1 ? photos.length - 1 : photoIndex - 1}
+      />
+      <Img
+        opacity={false}
+        photosArr={photos}
+        index={photoIndex}
+        setPhotoIndex={setPhotoIndex}
+      />
+      <Img
+        opacity={true}
+        photosArr={photos}
+        index={photoIndex + 1 === photos.length ? 0 : photoIndex + 1}
+      />
+    </div>
+  );
+};
 
-export default function SectionPhotos() {
+export default function SectionPhotos(props) {
   const [photoIndex, setPhotoIndex] = useState(0);
-  const [categoryId, setCategoryId] = useState(0);
-  const [category, setCategory] = useState([]);
-  const [photos, setPhotos] = useState([]);
-  const [photosIsLoad, setPhotosIsLoad] = useState(true);
-
-  useEffect(() => {
-    start(setCategory, categoryId, setPhotos, setPhotosIsLoad);
-  }, [categoryId, photosIsLoad]);
 
   return (
     <section>
       <div className="background_btns">
         <div className="btns">
           <div className="btns_child">
-            {category.map((el, index) => (
-              <ButtonSorting key={index} id={+el.id} setId={setCategoryId}>
+            {props.category.map((el, index) => (
+              <ButtonSorting
+                key={index}
+                id={+el.id}
+                setId={props.setCategoryId}
+              >
                 {el.name}
               </ButtonSorting>
             ))}
@@ -37,13 +51,22 @@ export default function SectionPhotos() {
       </div>
 
       <div className="photos">
-        {photoElements(photos, photoIndex, setPhotoIndex, photosIsLoad)}
+        {props.photosIsLoad ? (
+          <p>Идет загрузка </p>
+        ) : (
+          photoElements(
+            props.photos,
+            photoIndex,
+            setPhotoIndex,
+            props.photosIsLoad
+          )
+        )}
       </div>
 
       <div className="background_page">
         <div className="btns-page_child">
           <ButtonPage
-            photosArr={photos}
+            photosArr={props.photos}
             photoIndex={photoIndex}
             setPhotoIndex={setPhotoIndex}
           />
@@ -53,43 +76,9 @@ export default function SectionPhotos() {
   );
 }
 
-const start = async (setCategory, categoryId, setPhotos, setPhotosIsLoad) => {
-  await setPhotosIsLoad(true);
-
-  await axios
-    .get(linkCategory)
-    .then((res) => setCategory(res.data))
-    .catch((err) => console.log("Category", err));
-
-  await axios
-    .get(`${linkPhotos}?category=${categoryId === 0 ? "" : categoryId}`)
-    .then((res) => setPhotos(res.data))
-    .catch((err) => console.log("Photos", err))
-    .finally(() => setPhotosIsLoad(false));
-};
-
-const photoElements = (photos, photoIndex, setPhotoIndex, isLoading) => {
-  return (
-    <div className="photos_elts">
-      <Img
-        isLoading={isLoading}
-        opacity={true}
-        photosArr={photos}
-        index={photoIndex - 1 === -1 ? photos.length - 1 : photoIndex - 1}
-      />
-      <Img
-        isLoading={isLoading}
-        opacity={false}
-        photosArr={photos}
-        index={photoIndex}
-        setPhotoIndex={setPhotoIndex}
-      />
-      <Img
-        isLoading={isLoading}
-        opacity={true}
-        photosArr={photos}
-        index={photoIndex + 1 === photos.length ? 0 : photoIndex + 1}
-      />
-    </div>
-  );
+SectionPhotos.propTypes = {
+  photos: PropTypes.array,
+  category: PropTypes.array,
+  setCategoryId: PropTypes.func,
+  photosIsLoad: PropTypes.bool,
 };

@@ -9,23 +9,15 @@ Img.propTypes = {
   isLoading: PropTypes.bool,
 };
 
-export default function Img({
-  opacity,
-  photosArr,
-  index,
-  setPhotoIndex,
-  isLoading,
-}) {
+export default function Img({ opacity, photosArr, index, setPhotoIndex }) {
   useEffect(() => {
-    if (setPhotoIndex !== undefined && !isLoading) {
+    if (setPhotoIndex !== undefined) {
       if (index === photosArr.length) setPhotoIndex(0);
       else if (index === -1) setPhotoIndex(photosArr.length - 1);
     }
-  }, [setPhotoIndex, index, photosArr.length, isLoading]);
+  }, [setPhotoIndex, index, photosArr.length]);
 
-  return isLoading ? (
-    <p>Идет загрузка...</p>
-  ) : (
+  return (
     photosArr[index] !== undefined && (
       <img
         src={photosArr[index].link}

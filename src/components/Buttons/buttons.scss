@@ -1,3 +1,5 @@
+$small: 390px;
+
 button {
   background-color: #ebebeb;
   border: none;
@@ -9,6 +11,7 @@ button {
 
   &:last-child {
     margin-right: 0;
+    margin-bottom: 1vh;
   }
 }
 
@@ -17,6 +20,10 @@ button {
   margin: 1vh 1vh 0 0;
   border-radius: 3vh;
   font-size: 150%;
+
+  @media screen and (max-width: $small) {
+    padding: 1vh 10vh 1vh 10vh;
+  }
 }
 
 .btn_page {
@@ -24,4 +31,8 @@ button {
   border-radius: 1vh;
   margin: 3vh 10vh 10vh 0;
   font-size: 300%;
+
+  @media screen and (max-width: $small) {
+    padding: 1vh 3vh;
+  }
 }
