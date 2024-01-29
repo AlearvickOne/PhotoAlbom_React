@@ -13,11 +13,10 @@ export default function App() {
   const [categoryId, setCategoryId] = useState(0);
   const [category, setCategory] = useState([]);
   const [photos, setPhotos] = useState([]);
-  const [photosIsLoad, setPhotosIsLoad] = useState(true);
 
   useEffect(() => {
-    start(setCategory, categoryId, setPhotos, setPhotosIsLoad);
-  }, [categoryId]);
+    start(setCategory, categoryId, setPhotos);
+  }, [categoryId, setPhotos, setCategory]);
 
   return (
     <>
@@ -28,7 +27,6 @@ export default function App() {
             photos={photos}
             category={category}
             setCategoryId={setCategoryId}
-            photosIsLoad={photosIsLoad}
           />
           <SectionAddPhotos
             category={category}
@@ -41,9 +39,7 @@ export default function App() {
   );
 }
 
-const start = async (setCategory, categoryId, setPhotos, setPhotosIsLoad) => {
-  await setPhotosIsLoad(true);
-
+const start = async (setCategory, categoryId, setPhotos) => {
   await axios
     .get(linkCategory)
     .then((res) => setCategory(res.data))
@@ -52,6 +48,5 @@ const start = async (setCategory, categoryId, setPhotos, setPhotosIsLoad) => {
   await axios
     .get(`${linkPhotos}?category=${categoryId === 0 ? "" : categoryId}`)
     .then((res) => setPhotos(res.data))
-    .catch((err) => console.log("Photos", err))
-    .finally(() => setPhotosIsLoad(false));
+    .catch((err) => console.log("Photos", err));
 };

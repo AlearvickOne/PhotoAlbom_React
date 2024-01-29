@@ -9,7 +9,7 @@ Img.propTypes = {
   isLoading: PropTypes.bool,
 };
 
-export default function Img({ opacity, photosArr, index, setPhotoIndex }) {
+export default function Img({ photosArr, index, setPhotoIndex }) {
   useEffect(() => {
     if (setPhotoIndex !== undefined) {
       if (index === photosArr.length) setPhotoIndex(0);
@@ -19,11 +19,17 @@ export default function Img({ opacity, photosArr, index, setPhotoIndex }) {
 
   return (
     photosArr[index] !== undefined && (
-      <img
-        src={photosArr[index].link}
-        alt="photo"
-        className={`${opacity ? "opacity" : ""}`}
-      />
+      <>
+        <img
+          src={photosArr[index - 1 === -1 ? photosArr.length - 1 : index - 1].link}
+          alt="photo"
+        />
+        <img src={photosArr[index].link} alt="photo" />
+        <img
+          src={photosArr[index + 1 === photosArr.length ? 0 : index + 1].link}
+          alt="photo"
+        />
+      </>
     )
   );
 }

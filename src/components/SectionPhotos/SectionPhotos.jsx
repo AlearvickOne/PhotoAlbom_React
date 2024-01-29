@@ -6,29 +6,6 @@ import Img from "./Img";
 
 import "./sectionPhotos.scss";
 
-const photoElements = (photos, photoIndex, setPhotoIndex) => {
-  return (
-    <div className="photos_elts">
-      <Img
-        opacity={true}
-        photosArr={photos}
-        index={photoIndex - 1 === -1 ? photos.length - 1 : photoIndex - 1}
-      />
-      <Img
-        opacity={false}
-        photosArr={photos}
-        index={photoIndex}
-        setPhotoIndex={setPhotoIndex}
-      />
-      <Img
-        opacity={true}
-        photosArr={photos}
-        index={photoIndex + 1 === photos.length ? 0 : photoIndex + 1}
-      />
-    </div>
-  );
-};
-
 export default function SectionPhotos(props) {
   const [photoIndex, setPhotoIndex] = useState(0);
 
@@ -51,16 +28,14 @@ export default function SectionPhotos(props) {
       </div>
 
       <div className="photos">
-        {props.photosIsLoad ? (
-          <p>Идет загрузка </p>
-        ) : (
-          photoElements(
-            props.photos,
-            photoIndex,
-            setPhotoIndex,
-            props.photosIsLoad
-          )
-        )}
+          <div className="photos_elts">
+            <Img
+              opacity={false}
+              photosArr={props.photos}
+              index={photoIndex}
+              setPhotoIndex={setPhotoIndex}
+            />
+          </div>
       </div>
 
       <div className="background_page">
@@ -80,5 +55,4 @@ SectionPhotos.propTypes = {
   photos: PropTypes.array,
   category: PropTypes.array,
   setCategoryId: PropTypes.func,
-  photosIsLoad: PropTypes.bool,
 };
